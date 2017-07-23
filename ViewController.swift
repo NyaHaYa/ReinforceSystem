@@ -26,6 +26,8 @@ var level: Int = 1
 var money: Int = 10000
 var SwordItem: Int = 0
 
+let levelArr = [1000,2000,6000,12000,18000,36000,80000,160000,240000,300000,400000,800000,1200000,1600000,2000000,2800000,3600000]
+let prob = [0,8,10,14,18,23,25,34,43,48,52,21,13,61,70,33,73]
 class ViewController: UIViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var sellBtn: UIButton!
