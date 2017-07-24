@@ -4,7 +4,7 @@
 //
 //  Created by GP on 21/06/2017.
 //  Copyright © 2017 Gameplay. All rights reserved.
-//  Git!
+//
 
 import UIKit
 import GameplayKit
@@ -26,8 +26,11 @@ var level: Int = 1
 var money: Int = 10000
 var SwordItem: Int = 0
 
-let levelArr = [1000,2000,6000,12000,18000,36000,80000,160000,240000,300000,400000,800000,1200000,1600000,2000000,2800000,3600000]
-let prob = [0,8,10,14,18,23,25,34,43,48,52,21,13,61,70,33,73]
+let reinArr = ["0","1000","2000","6000","12000","18000","36000","80000","160000","240000","300000","400000","800000","1200000","1600000","2000000","2800000","3600000"]
+let sellArr = [0,30000,60000,120000,180000,240000,300000,360000,420000,480000,540000,1000000,2000000,3000000,4000000,5000000,6000000,7000000]
+let prob = [0,0,8,10,14,18,23,25,34,43,48,52,21,13,61,70,33,73]
+let image = ["\(lv1)","\(lv1)","\(lv2)","\(lv3)","\(lv4)","\(lv5)","\(lv6)","\(lv7)","\(lv8)","\(lv9)","\(lv10)","\(lv1)","\(lv2)","\(lv3)","\(lv4)","\(lv5)","\(lv6)","\(lv7)"]
+
 class ViewController: UIViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var sellBtn: UIButton!
@@ -40,8 +43,8 @@ class ViewController: UIViewController {
     
     let random = GKARC4RandomSource()
     
-
-//    ----- 돈의 상태를 새로고침 -------------------------------------------
+    
+    //    ----- 돈의 상태를 새로고침 -------------------------------------------
     func Reload() {
         // 돈의 상태를 재 출력
         moneyLabel.text = "Money : \(money)"
@@ -49,7 +52,7 @@ class ViewController: UIViewController {
         levelLabel.text = "Lv.\(level)"
     }
     
-//    ----- 현재 자금의 상태를 출력하는 함수-----------------------------------
+    //    ----- 현재 자금의 상태를 출력하는 함수-----------------------------------
     func Status() {
         /*
          * 돈이 만약 0 보다 작아질 경우에 "돈이 없습니다" 를 출력하고 돈이 0 밑으로 내려가지 않게
@@ -70,7 +73,7 @@ class ViewController: UIViewController {
         }
     }
     
-//    ------------------------------------------------------------
+    //    ------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -101,25 +104,25 @@ class ViewController: UIViewController {
         
     }
     
-//    ---------------------------------------------------------------
+    //    ---------------------------------------------------------------
     override func viewWillAppear(_ animated: Bool) {
         restartLabel.text = "부활권 : \(count)"
         moneyLabel.text = "Money : \(money)"
     }
     
-//    ---------------------------------------------------------------
+    //    ---------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-//    --------- 돈 마이너스 ----------------------------------------------
+    
+    //    --------- 돈 마이너스 ----------------------------------------------
     @IBAction func moneyIncreaseBtn(_ sender: Any) {
         money = 10000
         Reload()
         Status()
     }
-
-//    ----- 아이템 팔기 ---------------------------------------------------
+    
+    //    ----- 아이템 팔기 ---------------------------------------------------
     @IBAction func itemSellBtn(_ sender: Any) {
         
         if tf == 1 {
@@ -144,8 +147,8 @@ class ViewController: UIViewController {
         Reload()
         payLabel.text = ""
     }
-
-//     ----- 확률 ------
+    
+    //     ----- 확률 ------
     func reinforce(reinPrice: Int, probub: Int, price: Int, image: String) {
         
         payLabel.text = ""
@@ -180,37 +183,37 @@ class ViewController: UIViewController {
                 
                 switch level {
                 case 2:
-                    weaponViewImg.image = UIImage(named: "lv2.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png") // case 지우기
                 case 3:
-                    weaponViewImg.image = UIImage(named: "lv3.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 4:
-                    weaponViewImg.image = UIImage(named: "lv4.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 5:
-                    weaponViewImg.image = UIImage(named: "lv5.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 6:
-                    weaponViewImg.image = UIImage(named: "lv6.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 7:
-                    weaponViewImg.image = UIImage(named: "lv7.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 8:
-                    weaponViewImg.image = UIImage(named: "lv8.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 9:
-                    weaponViewImg.image = UIImage(named: "lv9.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 10:
-                    weaponViewImg.image = UIImage(named: "lv10.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 11:
-                    weaponViewImg.image = UIImage(named: "lv2.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 12:
-                    weaponViewImg.image = UIImage(named: "lv3.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 13:
-                    weaponViewImg.image = UIImage(named: "lv4.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 14:
-                    weaponViewImg.image = UIImage(named: "lv5.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 15:
-                    weaponViewImg.image = UIImage(named: "lv6.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 16:
-                    weaponViewImg.image = UIImage(named: "lv7.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 case 17:
-                    weaponViewImg.image = UIImage(named: "lv10.png")
+                    weaponViewImg.image = UIImage(named: "lv\(level).png")
                 default:
                     ()
                 }
@@ -232,70 +235,21 @@ class ViewController: UIViewController {
             }
         }
     }
-
-//    -----------------------------------------------------------------
+    
+    //    -----------------------------------------------------------------
     @IBAction func ReinBtn(_ sender: Any) {
+        level += 1
         
         if tf == 1 {
             sellBtn.setTitle("팔기", for: .normal)
             reinBtn.setTitle("강화", for: .normal)
             print(tf)
             
-            switch level {
-            case 1:
-                reinforce(reinPrice: 1000, probub: 0, price: 30000, image: lv2)
-                
-            case 2:
-                reinforce(reinPrice: 2000, probub: 8, price: 60000, image: lv3)
-                
-            case 3:
-                reinforce(reinPrice: 6000, probub: 10, price: 120000, image: lv4)
-                
-            case 4:
-                reinforce(reinPrice: 12000, probub: 14, price: 240000, image: lv5)
-                
-            case 5:
-                reinforce(reinPrice: 18000, probub: 18, price: 400000, image: lv6)
-                
-            case 6:
-                reinforce(reinPrice: 36000, probub: 23, price: 900000, image: lv7)
-                
-            case 7:
-                reinforce(reinPrice: 80000, probub: 25, price: 2000000, image: lv8)
-                
-            case 8:
-                reinforce(reinPrice: 160000, probub: 34, price: 4000000, image: lv9)
-                
-            case 9:
-                reinforce(reinPrice: 240000, probub: 43, price: 8000000, image: lv10)
-                
-            case 10:
-                reinforce(reinPrice: 300000, probub: 48, price: 10000000, image: lv1)
-                
-            case 11:
-                reinforce(reinPrice: 400000, probub: 52, price: 20000000, image: lv2)
-                
-            case 12:
-                reinforce(reinPrice: 800000, probub: 21, price: 40000000, image: lv3)
-                
-            case 13:
-                reinforce(reinPrice: 1200000, probub: 13, price: 80000000, image: lv4)
-                
-            case 14:
-                reinforce(reinPrice: 1600000, probub: 61, price: 100000000, image: lv5)
-                
-            case 15:
-                reinforce(reinPrice: 2000000, probub: 70, price: 150000000, image: lv6)
-                
-            case 16:
-                reinforce(reinPrice: 2800000, probub: 33, price: 200000000, image: lv7)
-                
-            case 17:
-                reinforce(reinPrice: 3600000, probub: 73, price: 500000000, image: lv10)
-                
-            default:
-                ()
-            }
+            reinArr[level]
+            sellArr[level]
+            prob[level]
+            image[level]
+            
             
         }
             
